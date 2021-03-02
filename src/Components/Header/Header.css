@@ -15,6 +15,16 @@
     margin-top: 10px;
 }
 
+.header__address {
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.header__address > .header__option {
+    margin-left: 0px;
+}
+
 .header__search {
     display: flex;
     flex: 1;
@@ -48,11 +58,11 @@
 }
 
 .header__optionLineOne {
-    font-size: 10px;
+    font-size: 14px;
 }
 
 .header__optionLineTwo {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 800;
 }
 
