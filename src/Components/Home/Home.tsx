@@ -1,7 +1,15 @@
 import React from "react";
 
-import amazonbackground from "../../resources/amazonbackground.jpg";
 import Product from "../Product/Product";
+
+import amazonbackground from "../../resources/amazonbackground.jpg";
+import theleanstartup from "../../resources/products/theleanstartup.jpg";
+import samsungmonitor from "../../resources/products/samsungmonitor.jpg";
+import echodot from "../../resources/products/echodot.jpg";
+import ipadpro from "../../resources/products/ipadpro.jpg";
+import samsungtv from "../../resources/products/samsungtv.jpg";
+import kenwood from "../../resources/products/kenwood.jpg";
+
 import "./Home.css";
 
 function Home() {
@@ -15,18 +23,48 @@ function Home() {
         />
 
         <div className="home__row">
-          <Product />
-          <Product />
+          <Product
+            title="The Lean Startup: How Constant Innovation Creates Radically Successful Businesses Paperback"
+            image={theleanstartup}
+            price={569.5}
+            rating={4}
+          />
+          <Product
+            title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor"
+            image={samsungmonitor}
+            price={11999}
+            rating={5}
+          />
         </div>
 
         <div className="home__row">
-          <Product />
-          <Product />
-          <Product />
+          <Product
+            title="Kenwood kMix Stand Mixer for Baking, Stylish Kitchen Mixer with K-beater, Dough Hook and Whisk, 5 Litre Glass Bowl"
+            image={kenwood}
+            price={5799.99}
+            rating={3}
+          />
+          <Product
+            title="Amazon Echo (3rd generation) | Smart speaker with Alexa, Charcoal Fabric"
+            image={echodot}
+            price={6100.99}
+            rating={5}
+          />
+          <Product
+            title="New Apple iPad Pro (12.9-inch, Wi-Fi, 128GB) - Silver (4th Generation)"
+            image={ipadpro}
+            price={35100.79}
+            rating={4}
+          />
         </div>
 
         <div className="home__row">
-          <Product />
+          <Product
+            title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor - Super Ultra Wide Dual WQHD 5120 x 1440"
+            image={samsungtv}
+            price={71099.1}
+            rating={4}
+          />
         </div>
       </div>
     </div>

@@ -1,23 +1,31 @@
-import React from "react";
-
-import theleanstartup from "../../resources/products/theleanstartup.jpg";
 import "./Product.css";
 
-function Product() {
+export interface ProductData {
+  title: string;
+  image: string;
+  price: number;
+  rating: number;
+}
+
+function Product({ title, image, price, rating }: ProductData) {
   return (
     <div className="product">
       <div className="product__info">
-        <p>The lean startup</p>
+        <p>{title}</p>
         <p className="product__price">
           <small>₹</small>
-          <strong>600</strong>
+          <strong>{price}</strong>
         </p>
         <div className="product__rating">
-          <p>🌟</p>
+          {Array(rating)
+            .fill(rating)
+            .map((_, i) => (
+              <p>🌟</p>
+            ))}
         </div>
       </div>
-      <img src={theleanstartup} alt="book" />
 
+      <img src={image} alt="book" />
       <button>Add to Cart</button>
     </div>
   );
