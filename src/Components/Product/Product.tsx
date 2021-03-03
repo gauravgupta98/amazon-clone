@@ -1,3 +1,4 @@
+import { StarRate } from "@material-ui/icons";
 import "./Product.css";
 
 export interface ProductData {
@@ -20,7 +21,7 @@ function Product({ title, image, price, rating }: ProductData) {
           {Array(rating)
             .fill(rating)
             .map((_, i) => (
-              <p>🌟</p>
+              <StarRate className="product__star" />
             ))}
         </div>
       </div>

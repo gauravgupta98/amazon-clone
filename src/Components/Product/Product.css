@@ -26,6 +26,10 @@
     display: flex;
 }
 
+.product__star {
+    color: #f9d524;
+}
+
 .product > img {
     max-height: 200px;
     width: 100%;
