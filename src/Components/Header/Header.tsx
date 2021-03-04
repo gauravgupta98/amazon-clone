@@ -1,5 +1,6 @@
 import { LocationOn, Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React from "react";
+import { Link } from "react-router-dom";
 
 import amazonlogo from "../../resources/amazonlogo.png";
 import "./Header.css";
@@ -7,7 +8,9 @@ import "./Header.css";
 function Header() {
   return (
     <div className="header">
-      <img className="header__logo" src={amazonlogo} alt="amazon logo" />
+      <Link to="/">
+        <img className="header__logo" src={amazonlogo} alt="amazon logo" />
+      </Link>
 
       <div className="header__address">
         <LocationOn />
