@@ -17,6 +17,7 @@ const initialState = {
 export enum ActionTypes {
   AddToBasket = "ADD_TO_BASKET",
   RemoveFromBasket = "REMOVE_FROM_BASKET",
+  SetUser = "SET_USER",
 }
 
 export const getBasketTotal = (basket: Product[]) =>
