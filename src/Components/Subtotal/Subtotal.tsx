@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 import "./Subtotal.css";
 
-import { BasketState, Product } from "../../store/reducer";
+import { BasketState, Product, getBasketTotal } from "../../store/reducer";
 
 function Subtotal() {
   const cart = useSelector<BasketState, Product[]>((state) => state.basket);
@@ -11,7 +11,11 @@ function Subtotal() {
   return (
     <div className="subtotal">
       <p>
-        Subtotal ({cart.length} items): <strong>{cart.length}</strong>
+        Subtotal ({cart.length} items):{"  "}
+        <strong>
+          <small>₹</small>
+          {getBasketTotal(cart)}
+        </strong>
       </p>
       <small className="subtotal__gift">
         <input type="checkbox" /> This order contains a gift

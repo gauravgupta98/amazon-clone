@@ -19,6 +19,9 @@ export enum ActionTypes {
   RemoveFromBasket = "REMOVE_FROM_BASKET",
 }
 
+export const getBasketTotal = (basket: Product[]) =>
+  basket?.reduce((amount, item) => item.price + amount, 0);
+
 export type Action = { type: ActionTypes; payload: Product };
 
 export const reducer = (state: BasketState = initialState, action: Action) => {
