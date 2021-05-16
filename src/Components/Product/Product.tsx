@@ -1,14 +1,26 @@
 import { StarRate } from "@material-ui/icons";
+import { useDispatch } from "react-redux";
+
 import "./Product.css";
 
-export interface ProductData {
-  title: string;
-  image: string;
-  price: number;
-  rating: number;
-}
+import { ActionTypes, Product as ProductData } from "../../store/reducer";
 
-function Product({ title, image, price, rating }: ProductData) {
+function Product({ id, title, image, price, rating }: ProductData) {
+  const dispatch = useDispatch();
+
+  const addToBasket = () => {
+    dispatch({
+      type: ActionTypes.AddToBasket,
+      payload: {
+        id: id,
+        title: title,
+        image: image,
+        price: price,
+        rating: rating,
+      },
+    });
+  };
+
   return (
     <div className="product">
       <div className="product__info">
@@ -27,7 +39,7 @@ function Product({ title, image, price, rating }: ProductData) {
       </div>
 
       <img src={image} alt="book" />
-      <button>Add to Cart</button>
+      <button onClick={addToBasket}>Add to Cart</button>
     </div>
   );
 }

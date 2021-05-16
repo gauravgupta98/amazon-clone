@@ -1,11 +1,15 @@
 import { LocationOn, Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import amazonlogo from "../../resources/amazonlogo.png";
 import "./Header.css";
+import { BasketState, Product } from "../../store/reducer";
 
 function Header() {
+  const cart = useSelector<BasketState, Product[]>((state) => state.basket);
+
   return (
     <div className="header">
       <Link to="/">
@@ -44,7 +48,9 @@ function Header() {
         <Link to="/checkout">
           <div className="header__optionBasket">
             <ShoppingCartOutlined />
-            <span className="header__optionLineTwo header__basketCount">0</span>
+            <span className="header__optionLineTwo header__basketCount">
+              {cart.length}
+            </span>
           </div>
         </Link>
       </div>
