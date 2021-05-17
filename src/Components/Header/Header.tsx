@@ -1,14 +1,22 @@
 import { LocationOn, Search, ShoppingCartOutlined } from "@material-ui/icons";
-import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import amazonlogo from "../../resources/amazonlogo.png";
 import "./Header.css";
-import { BasketState, Product } from "../../store/reducer";
+import { BasketState } from "../../store/reducer";
+import { auth } from "../../firebase";
 
 function Header() {
-  const cart = useSelector<BasketState, Product[]>((state) => state.basket);
+  const { basket, user } = useSelector<BasketState, BasketState>(
+    (state) => state
+  );
+
+  const handleAuthentication = () => {
+    if (user) {
+      auth.signOut();
+    }
+  };
 
   return (
     <div className="header">
@@ -30,10 +38,16 @@ function Header() {
       </div>
 
       <div className="header__nav">
-        <div className="header__option">
-          <span className="header__optionLineOne">Hello Guest</span>
-          <span className="header__optionLineTwo">Sign In</span>
-        </div>
+        <Link to="/login">
+          <div className="header__option" onClick={handleAuthentication}>
+            <span className="header__optionLineOne">
+              Hello {user ? user.email : "Guest"}
+            </span>
+            <span className="header__optionLineTwo">
+              {user ? "Sign Out" : "Sign In"}
+            </span>
+          </div>
+        </Link>
 
         <div className="header__option">
           <span className="header__optionLineOne">Returns</span>
@@ -49,7 +63,7 @@ function Header() {
           <div className="header__optionBasket">
             <ShoppingCartOutlined />
             <span className="header__optionLineTwo header__basketCount">
-              {cart.length}
+              {basket.length}
             </span>
           </div>
         </Link>

@@ -8,6 +8,7 @@ function Login() {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const signIn = (e: any) => {
     e.preventDefault();
@@ -17,7 +18,7 @@ function Login() {
       .then((auth) => {
         history.push("/");
       })
-      .catch((error) => alert(error.message));
+      .catch((error) => setError(error.message));
   };
 
   const register = (e: any) => {
@@ -30,7 +31,7 @@ function Login() {
           history.push("/");
         }
       })
-      .catch((error) => alert(error.message));
+      .catch((error) => setError(error.message));
   };
 
   return (
@@ -60,6 +61,8 @@ function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+
+          <p className="login__error">{error}</p>
 
           <button
             type="submit"

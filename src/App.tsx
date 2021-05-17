@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import "./App.css";
 
 import { auth } from "./firebase";
+import { ActionTypes } from "./store/reducer";
+
 import Checkout from "./Components/Checkout/Checkout";
 import Header from "./Components/Header/Header";
 import Home from "./Components/Home/Home";
@@ -14,18 +16,16 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // will only run once when the app component loads...
-
     auth.onAuthStateChanged((authUser) => {
       if (authUser) {
         dispatch({
-          type: "SET_USER",
+          type: ActionTypes.SetUser,
           user: authUser,
         });
       } else {
         // the user is logged out
         dispatch({
-          type: "SET_USER",
+          type: ActionTypes.SetUser,
           user: null,
         });
       }

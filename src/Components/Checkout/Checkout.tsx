@@ -5,10 +5,12 @@ import checkoutadv from "../../resources/checkoutadv.jpg";
 import Subtotal from "../Subtotal/Subtotal";
 import "./Checkout.css";
 import CheckoutProduct from "../CheckoutProduct/CheckoutProduct";
-import { BasketState, Product } from "../../store/reducer";
+import { BasketState } from "../../store/reducer";
 
 function Checkout() {
-  const cart = useSelector<BasketState, Product[]>((state) => state.basket);
+  const { basket, user } = useSelector<BasketState, BasketState>(
+    (state) => state
+  );
 
   return (
     <div className="checkout">
@@ -16,10 +18,10 @@ function Checkout() {
         <img className="checkout__ad" src={checkoutadv} alt="" />
 
         <div>
-          <h3>Hello, user</h3>
+          <h3>Hello, {user ? user.email : "Guest"}</h3>
           <h2 className="checkout__title">Your Shopping Cart</h2>
 
-          {cart.map((item) => (
+          {basket.map((item) => (
             <CheckoutProduct
               key={item.id}
               id={item.id}

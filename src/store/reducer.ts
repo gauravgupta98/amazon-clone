@@ -1,5 +1,8 @@
+import firebase from "firebase";
+
 export interface BasketState {
   basket: Product[];
+  user: firebase.User | null;
 }
 
 export interface Product {
@@ -12,6 +15,7 @@ export interface Product {
 
 const initialState = {
   basket: [],
+  user: null,
 };
 
 export enum ActionTypes {
@@ -23,7 +27,11 @@ export enum ActionTypes {
 export const getBasketTotal = (basket: Product[]) =>
   basket?.reduce((amount, item) => item.price + amount, 0);
 
-export type Action = { type: ActionTypes; payload: Product };
+export type Action = {
+  type: ActionTypes;
+  payload: Product;
+  user: firebase.User | null;
+};
 
 export const reducer = (state: BasketState = initialState, action: Action) => {
   switch (action.type) {
@@ -43,6 +51,10 @@ export const reducer = (state: BasketState = initialState, action: Action) => {
       }
 
       return { ...state, basket: newBasket };
+    }
+
+    case ActionTypes.SetUser: {
+      return { ...state, user: action.user };
     }
 
     default:
