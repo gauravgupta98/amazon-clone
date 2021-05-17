@@ -6,6 +6,10 @@ button {
   cursor: pointer;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   background-color: rgb(234, 234, 234);
   margin: 0;
