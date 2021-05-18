@@ -3,9 +3,9 @@ import { StarRate } from "@material-ui/icons";
 import { useDispatch } from "react-redux";
 
 import "./CheckoutProduct.css";
-import { Product, ActionTypes } from "../../store/reducer";
+import { IProduct, ActionTypes } from "../../store/reducer";
 
-function CheckoutProduct({ id, image, title, price, rating }: Product) {
+function CheckoutProduct({ id, image, title, price, rating }: IProduct) {
   const dispatch = useDispatch();
 
   const removeFromBasket = () => {

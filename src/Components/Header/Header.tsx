@@ -4,11 +4,11 @@ import { useSelector } from "react-redux";
 
 import amazonlogo from "../../resources/amazonlogo.png";
 import "./Header.css";
-import { BasketState } from "../../store/reducer";
+import { IBasketState } from "../../store/reducer";
 import { auth } from "../../firebase";
 
 function Header() {
-  const { basket, user } = useSelector<BasketState, BasketState>(
+  const { basket, user } = useSelector<IBasketState, IBasketState>(
     (state) => state
   );
 

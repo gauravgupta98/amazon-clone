@@ -1,14 +1,13 @@
-import React from "react";
 import { useSelector } from "react-redux";
 
 import checkoutadv from "../../resources/checkoutadv.jpg";
 import Subtotal from "../Subtotal/Subtotal";
 import "./Checkout.css";
 import CheckoutProduct from "../CheckoutProduct/CheckoutProduct";
-import { BasketState } from "../../store/reducer";
+import { IBasketState } from "../../store/reducer";
 
 function Checkout() {
-  const { basket, user } = useSelector<BasketState, BasketState>(
+  const { basket, user } = useSelector<IBasketState, IBasketState>(
     (state) => state
   );
 

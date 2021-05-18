@@ -3,9 +3,9 @@ import { useDispatch } from "react-redux";
 
 import "./Product.css";
 
-import { ActionTypes, Product as ProductData } from "../../store/reducer";
+import { ActionTypes, IProduct as IProductData } from "../../store/reducer";
 
-function Product({ id, title, image, price, rating }: ProductData) {
+function Product({ id, title, image, price, rating }: IProductData) {
   const dispatch = useDispatch();
 
   const addToBasket = () => {

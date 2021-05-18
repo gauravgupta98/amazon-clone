@@ -3,10 +3,10 @@ import { useSelector } from "react-redux";
 
 import "./Subtotal.css";
 
-import { BasketState, Product, getBasketTotal } from "../../store/reducer";
+import { IBasketState, IProduct, getBasketTotal } from "../../store/reducer";
 
 function Subtotal() {
-  const cart = useSelector<BasketState, Product[]>((state) => state.basket);
+  const cart = useSelector<IBasketState, IProduct[]>((state) => state.basket);
 
   return (
     <div className="subtotal">

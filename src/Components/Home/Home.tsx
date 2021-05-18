@@ -1,5 +1,3 @@
-import React from "react";
-
 import Product from "../Product/Product";
 
 import amazonbackground from "../../resources/amazonbackground.jpg";

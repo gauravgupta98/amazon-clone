@@ -1,11 +1,11 @@
 import firebase from "firebase";
 
-export interface BasketState {
-  basket: Product[];
+export interface IBasketState {
+  basket: IProduct[];
   user: firebase.User | null;
 }
 
-export interface Product {
+export interface IProduct {
   id: string;
   title: string;
   image: string;
@@ -24,21 +24,23 @@ export enum ActionTypes {
   SetUser = "SET_USER",
 }
 
-export const getBasketTotal = (basket: Product[]) =>
+export const getBasketTotal = (basket: IProduct[]) =>
   basket?.reduce((amount, item) => item.price + amount, 0);
 
 export type Action = {
   type: ActionTypes;
-  payload: Product;
+  payload: IProduct;
   user: firebase.User | null;
 };
 
-export const reducer = (state: BasketState = initialState, action: Action) => {
+export const reducer = (state: IBasketState = initialState, action: Action) => {
   switch (action.type) {
+    // Adding product to basket
     case ActionTypes.AddToBasket: {
       return { ...state, basket: [...state.basket, action.payload] };
     }
 
+    // Removing product from basket
     case ActionTypes.RemoveFromBasket: {
       const index = state.basket.findIndex(
         (basketItem) => basketItem.id === action.payload.id
@@ -53,6 +55,7 @@ export const reducer = (state: BasketState = initialState, action: Action) => {
       return { ...state, basket: newBasket };
     }
 
+    // Setting the user
     case ActionTypes.SetUser: {
       return { ...state, user: action.user };
     }
