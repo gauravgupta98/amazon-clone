@@ -22,6 +22,7 @@ export enum ActionTypes {
   AddToBasket = "ADD_TO_BASKET",
   RemoveFromBasket = "REMOVE_FROM_BASKET",
   SetUser = "SET_USER",
+  EmptyBasket = "EMPTY_BASKET",
 }
 
 export const getBasketTotal = (basket: IProduct[]) =>
@@ -58,6 +59,11 @@ export const reducer = (state: IBasketState = initialState, action: Action) => {
     // Setting the user
     case ActionTypes.SetUser: {
       return { ...state, user: action.user };
+    }
+
+    // Empty the basket
+    case ActionTypes.EmptyBasket: {
+      return { ...state, basket: [] };
     }
 
     default:

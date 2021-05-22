@@ -42,21 +42,21 @@ function Home() {
             id="11121092"
             title="Kenwood kMix Stand Mixer for Baking, Stylish Kitchen Mixer with K-beater, Dough Hook and Whisk, 5 Litre Glass Bowl"
             image={kenwood}
-            price={5799.99}
+            price={5799.5}
             rating={3}
           />
           <Product
             id="34353000"
             title="Amazon Echo (3rd generation) | Smart speaker with Alexa, Charcoal Fabric"
             image={echodot}
-            price={6100.99}
+            price={6100}
             rating={5}
           />
           <Product
             id="50323344"
             title="New Apple iPad Pro (12.9-inch, Wi-Fi, 128GB) - Silver (4th Generation)"
             image={ipadpro}
-            price={35100.79}
+            price={35100.5}
             rating={4}
           />
         </div>
@@ -66,7 +66,7 @@ function Home() {
             id="22444299"
             title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor - Super Ultra Wide Dual WQHD 5120 x 1440"
             image={samsungtv}
-            price={71099.1}
+            price={71099}
             rating={4}
           />
         </div>

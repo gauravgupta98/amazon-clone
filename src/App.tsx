@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 
 import "./App.css";
 
@@ -12,6 +14,10 @@ import Header from "./Components/Header/Header";
 import Home from "./Components/Home/Home";
 import Login from "./Components/Login/Login";
 import Payment from "./Components/Payment/Payment";
+
+const promise = loadStripe(
+  "pk_test_51ItpgLSDXMsfyylsnl01MqdIy3xPatUxejeKFtfN4VQGSD8e9SoAbRX1krqhlcMQI72PkcrlZk2qv3uwM1BfWtZc00J9U45ssV"
+);
 
 function App() {
   const dispatch = useDispatch();
@@ -46,7 +52,9 @@ function App() {
           </Route>
           <Route path="/payment">
             <Header />
-            <Payment />
+            <Elements stripe={promise}>
+              <Payment />
+            </Elements>
           </Route>
           <Route path="/">
             <Header />
