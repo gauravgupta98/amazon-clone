@@ -11,6 +11,7 @@ import Checkout from "./Components/Checkout/Checkout";
 import Header from "./Components/Header/Header";
 import Home from "./Components/Home/Home";
 import Login from "./Components/Login/Login";
+import Payment from "./Components/Payment/Payment";
 
 function App() {
   const dispatch = useDispatch();
@@ -42,6 +43,10 @@ function App() {
           <Route path="/checkout">
             <Header />
             <Checkout />
+          </Route>
+          <Route path="/payment">
+            <Header />
+            <Payment />
           </Route>
           <Route path="/">
             <Header />
