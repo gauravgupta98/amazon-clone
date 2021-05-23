@@ -11,6 +11,7 @@ export interface IProduct {
   image: string;
   price: number;
   rating: number;
+  hideButton?: boolean;
 }
 
 const initialState = {

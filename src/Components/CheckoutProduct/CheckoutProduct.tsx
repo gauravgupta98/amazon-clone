@@ -5,7 +5,14 @@ import { useDispatch } from "react-redux";
 import "./CheckoutProduct.css";
 import { IProduct, ActionTypes } from "../../store/reducer";
 
-function CheckoutProduct({ id, image, title, price, rating }: IProduct) {
+function CheckoutProduct({
+  id,
+  image,
+  title,
+  price,
+  rating,
+  hideButton,
+}: IProduct) {
   const dispatch = useDispatch();
 
   const removeFromBasket = () => {
@@ -39,7 +46,9 @@ function CheckoutProduct({ id, image, title, price, rating }: IProduct) {
             ))}
         </div>
 
-        <button onClick={removeFromBasket}>Remove from Basket</button>
+        {!hideButton && (
+          <button onClick={removeFromBasket}>Remove from Basket</button>
+        )}
       </div>
     </div>
   );
