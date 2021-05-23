@@ -22,7 +22,7 @@ function Payment() {
 
   const [succeeded, setSucceeded] = useState(false);
   const [processing, setProcessing] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState("");
   const [disabled, setDisabled] = useState(true);
   const [clientSecret, setClientSecret] = useState("");
 
@@ -44,6 +44,12 @@ function Payment() {
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
+
+    if (!user) {
+      setError("Please login for checkout.");
+      return;
+    }
+
     setProcessing(true);
 
     await stripe
@@ -64,7 +70,7 @@ function Payment() {
           });
 
         setSucceeded(true);
-        setError(null);
+        setError("");
         setProcessing(false);
 
         dispatch({
@@ -134,7 +140,11 @@ function Payment() {
                   <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
                 </button>
               </div>
-              {error && <div>{error}</div>}
+              {error && (
+                <div className="payment__error">
+                  <strong>{error}</strong>
+                </div>
+              )}
             </form>
           </div>
         </div>

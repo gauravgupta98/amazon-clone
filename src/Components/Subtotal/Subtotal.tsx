@@ -3,25 +3,27 @@ import { useSelector } from "react-redux";
 
 import "./Subtotal.css";
 
-import { IBasketState, IProduct, getBasketTotal } from "../../store/reducer";
+import { IBasketState, getBasketTotal } from "../../store/reducer";
 
 function Subtotal() {
   const history = useHistory();
-  const cart = useSelector<IBasketState, IProduct[]>((state) => state.basket);
+  const { user, basket } = useSelector<IBasketState, IBasketState>(
+    (state) => state
+  );
 
   return (
     <div className="subtotal">
       <p>
-        Subtotal ({cart.length} items):{"  "}
+        Subtotal ({basket.length} items):{"  "}
         <strong>
           <small>₹</small>
-          {getBasketTotal(cart)}
+          {getBasketTotal(basket)}
         </strong>
       </p>
       <small className="subtotal__gift">
         <input type="checkbox" /> This order contains a gift
       </small>
-      <button onClick={(e) => history.push("/payment")}>
+      <button onClick={(e) => history.push(user ? `/payment` : "/login")}>
         Proceed to Checkout
       </button>
     </div>

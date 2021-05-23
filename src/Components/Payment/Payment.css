@@ -25,6 +25,11 @@
     flex: 0.2;
 }
 
+.payment__error {
+  color: red;
+  margin-top: 10px;
+}
+
 .payment__address, .payment__items, .payment__details {
     flex: 0.8;
 }
@@ -48,4 +53,9 @@
     margin-top: 10px;
     border-color: #a88734 #9c7e31 #846a29;
     color: #111;
+  }
+
+  button:disabled {
+    cursor: default;
+    background: grey;
   }
