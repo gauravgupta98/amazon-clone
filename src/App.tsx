@@ -14,6 +14,7 @@ import Header from "./Components/Header/Header";
 import Home from "./Components/Home/Home";
 import Login from "./Components/Login/Login";
 import Payment from "./Components/Payment/Payment";
+import Orders from "./Components/Orders/Orders";
 
 const promise = loadStripe(
   "pk_test_51ItpgLSDXMsfyylsnl01MqdIy3xPatUxejeKFtfN4VQGSD8e9SoAbRX1krqhlcMQI72PkcrlZk2qv3uwM1BfWtZc00J9U45ssV"
@@ -43,6 +44,10 @@ function App() {
     <Router>
       <div className="app">
         <Switch>
+          <Route path="/orders">
+            <Header />
+            <Orders />
+          </Route>
           <Route path="/login">
             <Login />
           </Route>
