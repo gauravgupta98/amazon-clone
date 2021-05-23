@@ -45,6 +45,11 @@ function Payment() {
   const handleSubmit = async (event: any) => {
     event.preventDefault();
 
+    if (basket.length === 0) {
+      setError("Please add some products to cart to proceed.");
+      return;
+    }
+
     if (!user) {
       setError("Please login for checkout.");
       return;
@@ -141,7 +146,7 @@ function Payment() {
                 </button>
               </div>
               {error && (
-                <div className="payment__error">
+                <div className="error">
                   <strong>{error}</strong>
                 </div>
               )}
