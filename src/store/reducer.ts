@@ -10,7 +10,7 @@ export interface IProduct {
   title: string;
   image: string;
   price: number;
-  rating: number;
+  category: string;
   hideButton?: boolean;
 }
 

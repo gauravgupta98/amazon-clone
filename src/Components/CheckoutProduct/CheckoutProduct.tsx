@@ -1,19 +1,25 @@
-import React from "react";
+import { useState } from "react";
 import { StarRate } from "@material-ui/icons";
 import { useDispatch } from "react-redux";
 
 import "./CheckoutProduct.css";
 import { IProduct, ActionTypes } from "../../store/reducer";
 
+const MAX_RATING = 5;
+const MIN_RATING = 1;
+
 function CheckoutProduct({
   id,
   image,
   title,
   price,
-  rating,
+  category,
   hideButton,
 }: IProduct) {
   const dispatch = useDispatch();
+  const [rating] = useState(
+    Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
+  );
 
   const removeFromBasket = () => {
     dispatch({
@@ -23,7 +29,7 @@ function CheckoutProduct({
         title: title,
         image: image,
         price: price,
-        rating: rating,
+        category: category,
       },
     });
   };

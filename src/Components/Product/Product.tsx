@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { StarRate } from "@material-ui/icons";
 import { useDispatch } from "react-redux";
 
@@ -5,8 +6,14 @@ import "./Product.css";
 
 import { ActionTypes, IProduct as IProductData } from "../../store/reducer";
 
-function Product({ id, title, image, price, rating }: IProductData) {
+const MAX_RATING = 5;
+const MIN_RATING = 1;
+
+function Product({ id, title, image, price, category }: IProductData) {
   const dispatch = useDispatch();
+  const [rating] = useState(
+    Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
+  );
 
   const addToBasket = () => {
     dispatch({
@@ -16,15 +23,17 @@ function Product({ id, title, image, price, rating }: IProductData) {
         title: title,
         image: image,
         price: price,
-        rating: rating,
+        category: category,
       },
     });
   };
 
   return (
     <div className="product">
+      <p>{category}</p>
+      <img src={image} alt={title} />
       <div className="product__info">
-        <p>{title}</p>
+        <h4>{title}</h4>
         <p className="product__price">
           <small>₹</small>
           <strong>{price}</strong>
@@ -37,8 +46,6 @@ function Product({ id, title, image, price, rating }: IProductData) {
             ))}
         </div>
       </div>
-
-      <img src={image} alt="book" />
       <button onClick={addToBasket}>Add to Cart</button>
     </div>
   );
