@@ -7,14 +7,14 @@
     position: relative;
     margin: 3px;
     padding: 20px;
-    max-height: 400px;
+    max-height: 500px;
     min-width: 100px;
     z-index: 1;
 }
 
 .product__info {
     width: 100%;
-    height: 100px;
+    height: 150px;
     margin-bottom: 15px;
 }
 

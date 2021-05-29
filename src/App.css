@@ -2,3 +2,11 @@
     color: red;
     margin-top: 10px;
 }
+
+.product__description {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    margin: 5px 0;
+    -webkit-box-orient: vertical;
+}

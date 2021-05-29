@@ -21,6 +21,7 @@ function Order({ order }: any) {
           image={item.image}
           price={item.price}
           category={item.category}
+          description={item.description}
           hideButton={true}
         />
       ))}

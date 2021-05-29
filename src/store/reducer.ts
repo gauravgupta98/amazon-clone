@@ -11,6 +11,7 @@ export interface IProduct {
   image: string;
   price: number;
   category: string;
+  description: string;
   hideButton?: boolean;
 }
 

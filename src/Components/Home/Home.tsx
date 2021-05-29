@@ -39,6 +39,7 @@ function Home() {
                 price={price}
                 image={image}
                 category={category}
+                description={description}
               />
             )
           )}

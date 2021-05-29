@@ -14,6 +14,7 @@ function CheckoutProduct({
   title,
   price,
   category,
+  description,
   hideButton,
 }: IProduct) {
   const dispatch = useDispatch();
@@ -37,13 +38,9 @@ function CheckoutProduct({
   return (
     <div className="checkoutProduct" id={id}>
       <img className="checkoutProduct__image" src={image} alt={title} />
-
       <div className="checkoutProduct__info">
-        <p className="checkoutProduct__title">{title}</p>
-        <p className="checkoutProduct__price">
-          <small>₹</small>
-          <strong>{price}</strong>
-        </p>
+        <p className="checkoutProduct__category">{category}</p>
+        <h4 className="checkoutProduct__title">{title}</h4>
         <div className="checkoutProduct__rating">
           {Array(rating)
             .fill(rating)
@@ -51,6 +48,11 @@ function CheckoutProduct({
               <StarRate className="checkoutProduct__star" />
             ))}
         </div>
+        <p className="product__description">{description}</p>
+        <p className="checkoutProduct__price">
+          <small>₹</small>
+          <strong>{price}</strong>
+        </p>
 
         {!hideButton && (
           <button onClick={removeFromBasket}>Remove from Basket</button>
